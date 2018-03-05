@@ -1,3 +1,3 @@
 import Generator
 
-print(Generator.gen_twitter_sentence("sedTest.txt"))
+print(Generator.gen_twitter_sentence("S3_Gordon.txt"))
