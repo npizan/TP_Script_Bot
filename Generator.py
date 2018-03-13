@@ -6,9 +6,11 @@ import random
 def gen_twitter_sentence(filename=None):
     if filename is None:
         filename = pick_speaker()
+    else:
+        filename = f"Scripts/{filename}"
     twit_max = 280
     desc = ""
-    with open(filename) as f:
+    with open(filename, encoding="utf8") as f:
         desc = f"[{f.readline().strip()}]: "
         text = f.read()
     text_model = markovify.Text(text)
