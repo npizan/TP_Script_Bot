@@ -1,7 +1,11 @@
 import markovify
+import os
+import random
 
 
-def gen_twitter_sentence(filename):
+def gen_twitter_sentence(filename=None):
+    if filename is None:
+        filename = pick_speaker()
     twit_max = 280
     desc = ""
     with open(filename) as f:
@@ -9,3 +13,8 @@ def gen_twitter_sentence(filename):
         text = f.read()
     text_model = markovify.Text(text)
     return f"{desc}{text_model.make_short_sentence(twit_max - len(desc))}"
+
+
+def pick_speaker():
+    script = random.choice(os.listdir("Scripts"))
+    return f"Scripts/{script}"
